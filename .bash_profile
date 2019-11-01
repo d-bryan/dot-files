@@ -24,7 +24,6 @@ pyenv() {
   esac
 }
 
-
 shopt -s autocd histappend dirspell cdspell dirspell histverify nocaseglob no_empty_cmd_completion
 
 export HISTSIZE=5000
@@ -57,8 +56,11 @@ function mkcd()
 	mkdir $1 && cd $1
 }
 
+alias ngrok=/Users/dylan/.ngrok/ngrok
+
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
 source ~/.iterm2_shell_integration.bash
+
