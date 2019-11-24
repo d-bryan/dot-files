@@ -5,24 +5,9 @@ nvm use stable
 
 export PATH=$PATH:$HOME/usr/local/bin/bash
 
-export PATH="/Users/dylan/.pyenv/shims:${PATH}"
-export PYENV_SHELL=bash
-source '/usr/local/Cellar/pyenv/1.2.13_1/libexec/../completions/pyenv.bash'
-command pyenv rehash 2>/dev/null
-pyenv() {
-  local command
-  command="${1:-}"
-  if [ "$#" -gt 0 ]; then
-    shift
-  fi
-
-  case "$command" in
-  rehash|shell)
-    eval "$(pyenv "sh-$command" "$@")";;
-  *)
-    command pyenv "$command" "$@";;
-  esac
-}
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+export PATH="$HOME/.pyenv/shims:${PATH}"
 
 shopt -s autocd histappend dirspell cdspell dirspell histverify nocaseglob no_empty_cmd_completion
 
@@ -64,3 +49,9 @@ test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shel
 
 source ~/.iterm2_shell_integration.bash
 
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
+export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
+
+export PATH="$HOME/.cargo/bin:$PATH"
