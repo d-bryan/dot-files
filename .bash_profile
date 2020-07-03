@@ -1,13 +1,9 @@
 HOST_NAME=Gemini
 
-source ~/.nvm/nvm.sh
-nvm use stable
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 export PATH=$PATH:$HOME/usr/local/bin/bash
-
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-export PATH="$HOME/.pyenv/shims:${PATH}"
 
 shopt -s autocd histappend dirspell cdspell dirspell histverify nocaseglob no_empty_cmd_completion
 
@@ -42,6 +38,7 @@ function mkcd()
 }
 
 alias ngrok=/Users/dylan/.ngrok/ngrok
+alias ls='ls -rthla'
 
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
@@ -55,3 +52,13 @@ export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
 export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
 
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# android SDK and emulator
+export ANDROID_SDK=$HOME/Library/Android/sdk
+export PATH=$ANDROID_SDK/platform-tools:$PATH
+
+# pyenv config
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="/Users/dylan/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
